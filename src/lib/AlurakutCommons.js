@@ -118,7 +118,7 @@ AlurakutMenu.Wrapper = styled.header`
       }
       a {
         font-size: 12px;
-        color: black;
+        color: white;
         padding: 10px 16px;
         position: relative;
         text-decoration: none;

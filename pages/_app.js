@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    background: linear-gradient(360deg, #000, #ccc);
+    background: url('https://images3.alphacoders.com/106/thumb-1920-1065466.png');
     background-size: 100%;
   }
   #__next {
