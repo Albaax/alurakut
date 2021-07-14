@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Box from '../Box';
 
 export const ProfileRelationsBoxWrapper = styled(Box)`
+    background: rgba(255, 255, 255, .8);
+
   ul {
     display: grid;
     grid-gap: 8px;
@@ -48,5 +50,8 @@ export const ProfileRelationsBoxWrapper = styled(Box)`
       z-indeX: 1;
       background-image: linear-gradient(0deg,#00000073,transparent);
     }
+  }
+  @media(max-width: 860px){
+    background: rgba(255, 255, 255, 1);
   }
 `;

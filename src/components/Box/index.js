@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 const Box = styled.div`
-  background: #ffffff;
+  background: rgba(255, 255, 255, .8);
   border-radius: 8px;
-
   padding: 16px;
   /* CSS Pré-Pronto */
   margin-bottom: 10px;
@@ -55,6 +54,12 @@ const Box = styled.div`
     color: #FFFFFF;
     border-radius: 10000px;
     background-color: #6F92BB;
+  }
+  @media(max-width: 860px){
+    background: rgba(255, 255, 255, 1);
+    input {
+      display: none;
+    }
   }
 `;
 

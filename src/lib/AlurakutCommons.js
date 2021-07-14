@@ -27,7 +27,7 @@ export function AlurakutMenu({ githubUser }) {
         <AlurakutMenu.Logo src={`${BASE_URL}/logo.svg`} />
 
         <nav style={{ flex: 1 }}>
-          {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (
+          {[{ name: 'Home', slug: '/'}, {name: 'Friends', slug: '/friends'}, {name: 'Communities', slug: '/communities'}].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
               {menuItem.name}
             </Link>
@@ -36,10 +36,10 @@ export function AlurakutMenu({ githubUser }) {
 
         <nav>
           <a href={`/logout`}>
-            Sair
+            Leave
           </a>
           <div>
-            <input placeholder="Pesquisar no Orkut" />
+            <input placeholder="Search on Orkut" />
           </div>
         </nav>
 
@@ -54,9 +54,8 @@ export function AlurakutMenu({ githubUser }) {
 }
 AlurakutMenu.Wrapper = styled.header`
   width: 100%;
-  background-color: #308BC5;
   .alurakutMenuProfileSidebar {
-    background: white;
+    background: #C0C0C0;
     position: fixed;
     z-index: 100;
     padding: 46px;
@@ -93,7 +92,6 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
   .container {
-    background-color: #308BC5;
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -120,7 +118,7 @@ AlurakutMenu.Wrapper = styled.header`
       }
       a {
         font-size: 12px;
-        color: white;
+        color: black;
         padding: 10px 16px;
         position: relative;
         text-decoration: none;
@@ -139,8 +137,8 @@ AlurakutMenu.Wrapper = styled.header`
       }
     }
     input {
-      color: #ffffff;
-      background: #5579A1;
+      color: black;
+      background: #C0C0C0;
       padding: 10px 42px;
       border: 0;
       background-image: url(${`${BASE_URL}/icons/search.svg`});
@@ -190,19 +188,19 @@ export function AlurakutProfileSidebarMenuDefault() {
       <nav>
         <a href="/">
           <img src={`${BASE_URL}/icons/user.svg`} />
-            Perfil
+            Profile
           </a>
         <a href="/">
           <img src={`${BASE_URL}/icons/book.svg`} />
-            Recados
+            Messages
           </a>
         <a href="/">
           <img src={`${BASE_URL}/icons/camera.svg`} />
-            Fotos
+            Photos
           </a>
         <a href="/">
           <img src={`${BASE_URL}/icons/sun.svg`} />
-            Depoimentos
+            Depositions
           </a>
       </nav>
       <hr />
@@ -213,7 +211,7 @@ export function AlurakutProfileSidebarMenuDefault() {
           </a>
         <a href="/logout">
           <img src={`${BASE_URL}//icons/logout.svg`} />
-            Sair
+            Leave
           </a>
       </nav>
     </AlurakutProfileSidebarMenuDefault.Wrapper>
@@ -243,11 +241,11 @@ export function OrkutNostalgicIconSet(props) {
   return (
     <OrkutNostalgicIconSet.List>
       {[
-        { name: 'Recados', slug: 'recados', icon: 'book' },
-        { name: 'Fotos', slug: 'fotos', icon: 'camera' },
+        { name: 'Notes', slug: 'notes', icon: 'book' },
+        { name: 'Photos', slug: 'photos', icon: 'camera' },
         { name: 'Videos', slug: 'videos', icon: 'video-camera' },
-        { name: 'Fãs', slug: 'fas', icon: 'star' },
-        { name: 'Mensagens', slug: 'mensagens', icon: 'email' },
+        { name: 'Fans', slug: 'fans', icon: 'star' },
+        { name: 'Messages', slug: 'messages', icon: 'email' },
       ].map(({ name, slug, icon }) => (
         <li key={`orkut__icon_set__${slug}`}>
           <span style={{ gridArea: 'title' }} className="OrkutNostalgicIconSet__title">
@@ -260,8 +258,8 @@ export function OrkutNostalgicIconSet(props) {
         </li>
       ))}
       {[
-        { name: 'Confiável', slug: 'confiavel', icon: 'smile' },
-        { name: 'Legal', slug: 'legal', icon: 'cool' },
+        { name: 'Trustable', slug: 'trustable', icon: 'smile' },
+        { name: 'Cool', slug: 'cool', icon: 'cool' },
         { name: 'Sexy', slug: 'sexy', icon: 'heart' },
       ].map(({ name, slug, icon }) => {
         const total = props[slug] ? props[slug] : 2;

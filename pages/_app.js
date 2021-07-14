@@ -12,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    background: #D9E6F6;
+    background: linear-gradient(360deg, #000, #ccc);
+    background-size: 100%;
   }
   #__next {
     display: flex;
