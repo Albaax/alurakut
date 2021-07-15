@@ -22,6 +22,28 @@ function ProfileSidebar(proprieties) {
   )
 }
 
+function ProfileRelationsBox(proprieties) {
+  console.log(proprieties);
+  return (
+    <ProfileRelationsBoxWrapper>
+      <h2 className="smallTitle">
+        {proprieties.title} ({proprieties.items.length})
+      </h2>
+      <ul>
+        { proprieties.items.slice(0,6).map((itemCurrent) => {
+          return (
+            <li key={itemCurrent}>
+              <a href={itemCurrent.html_url} target="_blank">
+                <img src={itemCurrent.avatar_url} />
+                <span>{itemCurrent.login}</span>
+              </a>
+            </li>
+          )
+        }) }
+      </ul>
+    </ProfileRelationsBoxWrapper>
+  )
+}
 export default function Home() {
   const usuarioAleatorio = 'albaax';
   const [communities, setCommunities] = React.useState([{
@@ -39,6 +61,29 @@ export default function Home() {
       'felipefialho'
     ]
     
+    const [followers, setFollowers] = React.useState([]);
+    React.useEffect(function() {
+      fetch('https://api.github.com/users/Albaax/followers')
+      .then(function (answerService) {
+        return answerService.json();
+      })
+      .then(function(answerFinal) {
+        setFollowers(answerFinal);
+      })
+    }, [])
+
+    const [following, setFollowing] = React.useState([]);
+    React.useEffect(function() {
+      fetch('https://api.github.com/users/Albaax/following')
+      .then(function (answerService) {
+        return answerService.json();
+      })
+      .then(function(answerFinal) {
+        setFollowing(answerFinal);
+      })
+    }, [])
+
+    console.log('seguidores antes do return', followers);
     return (
       <>
       <AlurakutMenu />
@@ -94,6 +139,8 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
+            <ProfileRelationsBox title="Followers" items={followers} />
+            <ProfileRelationsBox title="Following" items={following} />
             <ProfileRelationsBoxWrapper>
               <h2 className="smallTitle">
                 Comunity people ({pessoasFavoritas.length})
@@ -113,23 +160,23 @@ export default function Home() {
               </ul>
             </ProfileRelationsBoxWrapper>
             <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">
-              Communities ({communities.length})
-            </h2>
-            <ul>
-              {communities.map((itemCurrent) => {
-                return (
-                  <li key={itemCurrent.id}>
-                    <a href={itemCurrent.link}>
-                      <img src={itemCurrent.image} />
-                      <span>{itemCurrent.title}</span>
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </ProfileRelationsBoxWrapper>
-          </div>
+              <h2 className="smallTitle">
+                Communities ({communities.length})
+              </h2>
+              <ul>
+                {communities.map((itemCurrent) => {
+                  return (
+                    <li key={itemCurrent.id}>
+                      <a href={itemCurrent.link} target="_blank">
+                        <img src={itemCurrent.image} />
+                        <span>{itemCurrent.title}</span>
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </ProfileRelationsBoxWrapper>
+        </div>
       </MainGrid>
     </>
   )
